@@ -1,0 +1,78 @@
+Rotation matricies
+
+Axis angle
+
+Euler angles
+
+Unit quaternarions
+
+Rot(z) = {
+	cosbeta -sinbeta 	0
+	siny 	 cosbeta 	0
+	0		 0			0
+}
+
+Rot(x) = {
+	1 		0 			0
+	siny 	cosalpha 	sinalpha
+	0		-sinalpha	cosalpha
+}
+
+Rot(y) = {
+	cosbeta		0 		-sinBeta
+	0 			1 		0	
+	singBeta	0		cosBeta
+}
+
+But how can we combine transformations? 
+Matrix Multiplication
+
+So what happens when we rot(z) * rot(y) * rot(x)? (using notation F'RF)
+
+is it the same if we do Rot(x) * rot(y) * rot(z)? NO
+
+They are not equivalent because matrix multiplication is not commutative.
+
+####Euler angles: Example -> x*z*x
+
+	roll pitch yaw: independent degrees of freedom can be combined together to get full range
+
+	Euler: (look for ken shoemake to use eulers)
+		Disadvantages:
+			- it's hard to communicate 
+			- Multiple singularities (see below)
+			- 24 representations! x*y*z, x*z*x, y*x*y ...
+		Advantages: 
+			- minimal representation
+
+	Multiple singularities:
+		- Is the nth rotation around the local or global frame?
+		- Example:
+			x = alph z = beta x = gamma
+			x - z - x
+
+			(0,0,0)
+			(pi/2, 0, pi/2)
+
+			^   
+			|  
+			| 
+			|------->
+			/
+	       /
+	      /
+
+	 	multipl solutions for the problem:
+	 	alpha1 beta1 gamma1 = (x,y)
+	 	alpha2 beta2 gamma2 = (x,y)
+	 	alpha3 beta3 gamma3 = (x,y)
+
+	 	how do you get back to the correct equation from the solution? No fun. 
+
+	 Rotation matrix -> euler angles is very tricky to do; it complicates things. 
+
+	 Finally considering "Gimbal lock"
+	 	- two of the axis align (lose a rotational degree of freedom)
+	 	- look for YouTube video: Euler angle gimbal lock
+
+####Euler angles:
