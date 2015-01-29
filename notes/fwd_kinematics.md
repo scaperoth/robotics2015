@@ -46,7 +46,7 @@ given joint angles and want to know where some point on the robot is as a funnct
 		  /
 		 /
 		- theta
-		
+
 	where q1 = 	 |  x1   |   
 		   		 |  x2   |	
 		   		 | theta |
@@ -67,5 +67,16 @@ given joint angles and want to know where some point on the robot is as a funnct
 	- how many ways can you think of to constrain two bodies in three dimensions?
 	- x,y,z and roll,pitch, yaw
 
-
+###Calculating the derivative of a rotation matrix with respect to time:
+	- R * RT = I
+	- why is this true? It is orthonormality!
+	- R * R^-1 = I 
+	- then we take the derivative with respect to time: d/dt (R * RT = I)
+	- SOOOOOO this is equivalent to:
+	 (R' * RT) + (R * RT') = 0
+	- Also know that (R*RT)T = (RT)T * R'T = R * R'T
+	- ^^ = S * ST = 0 
+	- where S = -ST <--- S is a skew symmetric matrix
+	- R' = SR === R' = w~ R <--- omega hat. a.k.a angular velocity matrix
+	
 
