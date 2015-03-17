@@ -1,0 +1,1 @@
+cd build && cmake .. && make && cd .. && gzserver --verbose ${1}.world 

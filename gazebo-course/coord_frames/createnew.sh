@@ -1,0 +1,1 @@
+cd build && cmake .. && make -j && cd .. && gazebo --verbose ${2} ${1}.world 

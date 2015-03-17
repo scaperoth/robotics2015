@@ -80,3 +80,13 @@ given joint angles and want to know where some point on the robot is as a funnct
 	- R' = SR === R' = w~ R <--- omega hat. a.k.a angular velocity matrix
 	
 
+> note: use git for homework. Repo: https://github.com/PositronicsLab/gazebo-course
+
+###Summary
+
+	- forward kinematics is...
+		- given rigid body and link(s) on the system with a specific configuration and a reference point (u)
+		- Forward kinematics tells us where the frame is in regards to the universe given any frame or point
+		- where is one frame with respect to another frame
+
+>Next: Inverse Kinematics
